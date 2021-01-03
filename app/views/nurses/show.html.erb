@@ -1,0 +1,31 @@
+<div class="container">
+    <h4> Nurse Name: <%= @nurse.name %> </h4>  
+    <h5> You are viewing all Residents in Your Care </h5>
+    <div class="row">
+        <% @nurse.patients.each do |patient| %>
+            <div class="col-sm-4">
+                <% if patient.has_over_due_prescription?(DateTime.now) %>
+                    <div class="card text-white bg-danger mb-3">
+                <% elsif patient.has_prescriptions_this_hour?(DateTime.now) %>
+                    <div class="card text-white bg-warning mb-3">
+                <% else %>
+                    <div class="card text-white bg-success mb-3">
+
+                <% end %>
+                    <div class="card-header">
+                        <%= patient.name %>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= link_to patient.name, [@nurse, patient] %></h5>
+                        <p class="card-text">Floor:  <%= patient.room.floor %></p>
+                        <p class="card-text">Room Number: <%= patient.room.number %></p>
+                        
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+</div>
+
+

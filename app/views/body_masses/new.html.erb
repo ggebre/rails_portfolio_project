@@ -1,0 +1,10 @@
+<div class="container">
+<%= form_for @body_mass do |f| %>
+    <%=f.hidden_field :patient_id, :value => @body_mass.patient_id %>
+    <%= f.label :weight, class: "form-label" %><br>
+    <%= f.number_field :weight, class: "form-control"%> <br>
+    <%= f.label :height, class: "form-label" %><br>
+    <%= f.text_field :height, class: "form-control" %> <br>
+    <%= f.submit %>
+<% end %>
+</div>

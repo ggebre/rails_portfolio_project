@@ -1,0 +1,14 @@
+
+    <div class="container">
+    <%= form_for @vital do |f| %>
+        <%=f.hidden_field :patient_id, :value => @vital.patient_id %>
+        <%= f.label :temperature, class: "form-label" %><br>
+        <%= f.number_field :temperature, class: "form-control"%> <br>
+        <%= f.label :pressure, class: "form-label" %><br>
+        <%= f.text_field :pressure, class: "form-control" %> <br>
+        <%= f.label :pulse, class: "form-label" %><br>
+        <%= f.number_field :pulse, class: "form-control" %> <br>
+
+        <%= f.submit %>
+    <% end %>
+    </div>

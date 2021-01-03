@@ -1,0 +1,8 @@
+<%= form_tag '/nurse_admins/nurse_assignment' do %>
+    <% @nurses.each do |nurse| %>
+        <p> <%= nurse.name %> </p>
+        <%= select_tag 'nurse[]', options_for_select(@floors.collect{ |f| [f.floor, nurse.id.to_s + "-"+f.floor.to_s] })%>
+    <% end %>
+    <br>
+    <%= submit_tag 'Submit Assignments'%>
+<% end %>

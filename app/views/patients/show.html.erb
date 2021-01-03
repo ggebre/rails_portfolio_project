@@ -1,0 +1,46 @@
+<div class="container">
+    
+    <h4> Patient Name: <%= @patient.name %> </h4>  
+    <h5> Patient Room Number: <%= @patient.room.number %> </h5>
+
+    <%# This should display a form to update the prescriptions after they are given to patient %>
+    
+    <%= form_for @patient do |f| %>
+
+        <%= f.submit 'Save'%> <br>
+
+        
+
+        <div class="row">
+            <%= f.collection_check_boxes :prescription_ids, @patient.prescriptions.order(:delivery_time), :id, :name do |b|%> 
+                
+                <div class="col-sm-4">
+                    <% if b.object.over_due_prescription? %>
+                        <div class="card text-white bg-danger mb-3"> 
+                        
+                    <% elsif b.object.this_hour_prescription?%>
+                         <div class="card text-white bg-warning mb-3"> 
+                         
+                    <% else %>
+                        <div class="card text-white bg-primary mb-3">
+                    <% end %>
+                        <div class="card-header">
+                            <% if !b.object.upcoming_prescription? %>
+                                <%= b.check_box %>
+                            <% end %>
+                                <%= b.label %> 
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Delivery Time: <%=b.object.delivery_time.strftime('%H:%M')%></h5>
+                                <p class="card-text">Description:  <%= b.object.description ? b.object.description : "has no description" %></p>
+                                <p class="card-text"> Quantity Remaining:  <%= b.object.quantity%></p>
+                                <p class="card-text"><strong>Dose</strong>: <%=b.object.dose%> &nbsp;&nbsp;&nbsp;&nbsp; <strong>Frequency</strong>: <%=b.object.frequency%> times a day </p>
+                            </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+
+    <% end %>
+</div>
+

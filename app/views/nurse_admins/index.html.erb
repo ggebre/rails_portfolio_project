@@ -1,0 +1,17 @@
+<h1>NurseAdmins#index</h1>
+<p>Lists all the nurses to be assigned to a floor </p>
+<%= form_tag '/nurse_admins' do %>
+    <% Nurse.all.each do |nurse| %>
+        <% index = "floor_"+ nurse.id.to_s %>
+        <h3><%=nurse.name%></h1>
+        <%= label_tag 'floor_1' %>
+        <%= radio_button_tag index, "1_"+ nurse.id.to_s%>
+        <%= label_tag 'floor_2' %>
+        <%= radio_button_tag index, "2_"+ nurse.id.to_s%>
+        <%= label_tag 'floor_3' %>
+        <%= radio_button_tag index, "3_"+ nurse.id.to_s%>
+        <%= label_tag 'floor_4' %>
+        <%= radio_button_tag index, "4_"+ nurse.id.to_s%> <br>
+    <% end %>
+    <%= submit_tag 'Submit Assignments ' %>
+<% end %>

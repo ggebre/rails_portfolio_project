@@ -1,0 +1,24 @@
+
+<div class="container">
+
+<%= form_for @patient   do |f|%>
+                <%= f.fields_for :prescriptions, @patient.prescriptions.build do |prescriptions_fields| %>
+                    <%= prescriptions_fields.label :name, class: "form-label" %> <br>
+                    <%= prescriptions_fields.text_field :name, class: "form-control" %> <br>
+
+                    <%= prescriptions_fields.label :description, class: "form-label" %> <br>
+                    <%= prescriptions_fields.text_area :description, class: "form-control" %> <br>
+
+                    <%= prescriptions_fields.label :frequency, class: "form-label" %><br>
+                    <%= prescriptions_fields.number_field :frequency, class: "form-control" %><br>
+
+                    <%= prescriptions_fields.label :dose, class: "form-label" %><br>
+                    <%= prescriptions_fields.number_field :dose, class: "form-control" %><br>
+
+                    <%= prescriptions_fields.label :quantity, class: "form-label" %><br>
+                    <%= prescriptions_fields.number_field :quantity, class: "form-control" %><br>
+                    
+                <% end %>
+    <%= f.submit "create Prescription"%>
+<% end %>
+</div>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsPortfolioProject</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link <%=@order%>" href= <%= nurses_path %>>Orders Portal</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link <%=@mar%>" href= <%= nurse_path @nurse %> >MAR</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link<%=@tar%>" href="#">Tar</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href=<%= sessions_logout_path%>>Logout</a>
+        </li>
+        
+    </ul>
+    <%= yield %>
+  </body>
+</html>

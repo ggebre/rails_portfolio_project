@@ -1,0 +1,56 @@
+
+    <%= form_for patient do |f|%>
+
+        <%= f.label :name, class: "form-label" %> <br>
+        <%= f.text_field :name, class: "form-control" %> <br><br>
+        <%= field_set_tag 'Patient Address', class: "border p-2" do %>
+            <%= f.fields_for :address, patient.build_address do |address_fields| %>
+                <div class="row">
+                    <div class="col">
+                        <%= address_fields.label :address_1, class: "form-label" %>
+                        <%= address_fields.text_field :address_1, class: "form-control" %>
+                    </div>
+                
+                    <div class="col">
+                        <%= address_fields.label :address_2, class: "form-label" %>
+                        <%= address_fields.text_field :address_2, class: "form-control" %>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <%= address_fields.label :city, class: "form-label" %><br>
+                        <%= address_fields.text_field :city, class: "form-control" %>
+                    </div>
+                    <div class="col">
+                        <%= address_fields.label :state, class: "form-label" %><br>
+                        <%= address_fields.text_field :state, class: "form-control" %>
+                    </div>
+                    <div class="col">
+                        <%= address_fields.label :zipcode, class: "form-label" %><br>
+                        <%= address_fields.text_field :zipcode, class: "form-control" %>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <%= address_fields.label :email, class: "form-label" %>
+                        <%= address_fields.text_field :email, class: "form-control" %>
+                    </div>
+                    <div class="col">
+                        <%= address_fields.label :phone_number, class: "form-label" %><br>
+                        <%= address_fields.text_field :phone_number, class: "form-control" %>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+
+        <br>
+        <%= field_set_tag 'Patient Room Assignment', class: "border p-2" do %>
+            <%= f.select :room, options_for_select(Room.all.collect{ |u| [u.number, u.id] }) %>
+        <% end %>
+        
+        <% if false %>
+            <%= f.collection_check_boxes :prescription_ids, Prescription.all, :id, :name %> <br>
+        <% end %>
+        <%= f.submit %>
+
+    <% end %>

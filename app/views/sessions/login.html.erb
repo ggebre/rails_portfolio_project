@@ -1,0 +1,15 @@
+<div class="container">
+    <%= form_tag '/sessions' do %>
+        <%= label_tag :email %><br>
+        <%= text_field_tag :email %> <br>
+        <%= label_tag :password %><br>
+        <%= password_field_tag :password %><br>
+        <%= submit_tag 'LogIn'%> 
+    <% end %>
+
+    
+    <br>
+    <%= link_to '/auth/google_oauth2' do %> 
+        <i class="fab fa-google"> Sign In</i>
+    <% end %>
+</div>
