@@ -2,6 +2,11 @@ class Prescription < ApplicationRecord
     has_many :prescription_patients
     has_many :patients, through: :prescription_patients
     
+    validates :name, presence: true
+    validates :dose, presence: true
+    validates :frequency, presence: true
+    validates :quantity, presence: true
+
     after_save :delivery_time_updater! 
     # filter prescriptions with given date_time
     def self.prescriptions_this_hour(time)

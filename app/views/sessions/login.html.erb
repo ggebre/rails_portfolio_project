@@ -1,13 +1,18 @@
-<div class="container">
-    <%= form_tag '/sessions' do %>
-        <%= label_tag :email %><br>
-        <%= text_field_tag :email %> <br>
-        <%= label_tag :password %><br>
-        <%= password_field_tag :password %><br>
-        <%= submit_tag 'LogIn'%> 
-    <% end %>
 
-    
+<div class="container center_div">
+    <%= form_tag '/sessions' do %>
+        <div class="form-group">
+            <%= label_tag :email, nil, class: "form-label" %>
+            <%= text_field_tag :email, nil, class: "form-control" %>
+        </div>
+        <div class="form-group">
+            <%= label_tag :password, nil, class: "form-label" %>
+            <%= password_field_tag :password, nil, class: "form-control" %>
+        </div>
+        <br>
+        <%= submit_tag 'LogIn',  class: "btn btn-primary" %> 
+
+    <% end %>
     <br>
     <%= link_to '/auth/google_oauth2' do %> 
         <i class="fab fa-google"> Sign In</i>

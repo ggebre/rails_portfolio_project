@@ -12,10 +12,13 @@ class Nurse < ApplicationRecord
             nurse_id = floor.split('-').first 
             floor_id = floor.split('-').last
             # find the floor and find the rooms where a resident is...
-            Nurse.find_by(id: nurse_id).patients.clear
+            
+            nurse = Nurse.find_by(id: nurse_id)
+            nurse.patients.clear
+            # floor_assigned =  Room.where(:floor => floor_id)
             patients = Room.rooms_with_patients(floor_id).map {|room| room.patients}
             
-            Nurse.find_by(id: nurse_id).patients << patients
+            nurse.patients << patients
         end
     end
 end

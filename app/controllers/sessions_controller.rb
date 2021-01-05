@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def create
      
-      if auth[:uid]
+      if !params[:email]
         @nurse = Nurse.find_by(email: email) 
         if @nurse 
           if !@nurse[:uid]

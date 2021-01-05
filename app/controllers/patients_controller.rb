@@ -1,11 +1,16 @@
 class PatientsController < ApplicationController
   def index
     if logged_in?
-      if params[:nurse_id]
-        @patients = Nurse.find(params[:nurse_id]).patients 
+      if session[:nurse_id]
+          @patients = current_user.patients
+          @nurse = current_user
       else
-        @patients = Patient.all 
+          id = current_user.nurse_id || params[:nurse_id]
+          @nurse = Nurse.find(id)
+          @patients = @nurse.patients
+          
       end
+      render 'nurses/show'
     else
       render 'sessions/login'
     end
@@ -14,7 +19,11 @@ class PatientsController < ApplicationController
   def show
    if logged_in?
       @patient = set_patient 
-      @nurse = Nurse.find(current_user.nurse_id)
+      if session[:nurse_id]
+        @nurse = current_user
+      else
+        @nurse = Nurse.find(current_user.nurse_id)
+      end
       render :layout => 'patient'
    else
     render 'sessions/login'
@@ -22,10 +31,9 @@ class PatientsController < ApplicationController
   end
 
   def create
-   
+    
     @patient = Patient.new(patient_params)
     if @patient.save 
-      # byebug
       room = Room.find(params[:patient][:room])
       @patient.room = room 
       redirect_to @patient  
@@ -44,7 +52,8 @@ class PatientsController < ApplicationController
 
   def edit
     if logged_in?
-      @patient = set_patient 
+      @patient = set_patient
+      
       render :layout => 'patient'
     else
       render 'sessions/login'

@@ -5,15 +5,14 @@ class NurseAdminsController < ApplicationController
   end
 
   def assignments 
-    if logged_in?
+    
+    
       if Nurse.nurse_assigned(params[:nurse])
         redirect_to nurse_assignment_path
       else
         redirect_to nurse_assignment_path
       end
-    else
-      render 'sessions/login'
-    end
+    
   end
   def index 
     @nurse_admins = NurseAdmin.all 

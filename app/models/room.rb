@@ -1,7 +1,9 @@
 class Room < ApplicationRecord
     has_many :patient_rooms 
     has_many :patients, through: :patient_rooms
-    # validates :floor, :number 
+    validates :floor, presence: true
+    validates :number, presence: true
+
     def self.floors 
         select(:floor).distinct
     end
