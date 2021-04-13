@@ -15,31 +15,11 @@ In addtion to the medication, the nurse can enter data related to physical and n
 ![alt text](https://github.com/ggebre/rails_portfolio_project/blob/master/NewMedication%20Form.png)
 
 # Technologies 
+* Ruby on Rails 
+* Bootstrap 
+
+# Contact 
+* getu.gebre.gg@gmail.com 
+* [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/getugebre)
 
 
-
-
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
