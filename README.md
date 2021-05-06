@@ -1,24 +1,25 @@
-# README
+# Rails Portfolio Project 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The web application is a patient management system. In the web application, a nurse can register new patient. In addition, the nurse can manage medication pass to a patient. Nurse administrators can assign nurses to a floor. 
 
-Things you may want to cover:
+![alt text](https://github.com/ggebre/rails_portfolio_project/blob/master/PatientList%20ScreenShot.png)
 
-* Ruby version
+Once the nurse log in to the application, the nurse can see the list of patients in her care as indicated above. The lists are color coded to indicate if the patients have overdue prescriptions or not. Green is if the patient has no overdue prescriptions, while yellow shows that the patient has prescriptions to be passed in the hour. Red indicates that the patient has one or more overdue prescriptions. 
 
-* System dependencies
+![alt text](https://github.com/ggebre/rails_portfolio_project/blob/master/LoginPage.png)
 
-* Configuration
+When a given patient is selected, the nurse can see the list of medications along with dose and time. The nurse can then select the medication that needs to be given or not. Once the medication is passed to the patient, the nurse clicks on save which changes the color. 
 
-* Database creation
+![alt text](https://github.com/ggebre/rails_portfolio_project/blob/master/MedicationList.png)
+In addtion to the medication, the nurse can enter data related to physical and new medications. 
+![alt text](https://github.com/ggebre/rails_portfolio_project/blob/master/NewMedication%20Form.png)
 
-* Database initialization
+# Technologies 
+* Ruby on Rails 
+* Bootstrap 
 
-* How to run the test suite
+# Contact 
+* getu.gebre.gg@gmail.com 
+* [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/getugebre)
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
