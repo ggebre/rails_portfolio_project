@@ -15,10 +15,11 @@ class PatientsController < ApplicationController
       render 'sessions/login'
     end
   end
-
+# before_action 
   def show
    if logged_in?
       @patient = set_patient 
+      
       if session[:nurse_id]
         @nurse = current_user
       else
@@ -31,7 +32,6 @@ class PatientsController < ApplicationController
   end
 
   def create
-    
     @patient = Patient.new(patient_params)
     if @patient.save 
       room = Room.find(params[:patient][:room])

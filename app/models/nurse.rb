@@ -4,6 +4,14 @@ class Nurse < ApplicationRecord
     has_many :patients, through: :nurse_patients
     has_many :rooms, through: :patients
     
+    validate :email_validate
+
+    def email_validate
+        
+        unless Nurse.find_by(email: record.email)
+            record.errors[:email] << "You are not in our system!"
+        end
+    end
 
     def self.nurse_assigned(floors)
         
@@ -21,4 +29,6 @@ class Nurse < ApplicationRecord
             nurse.patients << patients
         end
     end
+
+    
 end

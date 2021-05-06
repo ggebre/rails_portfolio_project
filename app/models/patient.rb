@@ -69,6 +69,7 @@ class Patient < ApplicationRecord
     # end
     
     def prescription_ids=(attributes)
+        
         attributes.each do |id|
             if !id.empty?
                 self.prescriptions.where(id: id).last.save

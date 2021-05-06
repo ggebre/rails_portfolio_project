@@ -26,8 +26,6 @@ class NurseAdminsController < ApplicationController
     @nurse_admin = NurseAdmin.new 
   end
 
-  def create
-    # create an association between a nurse and floor...assign a nurse to a floor 
-  end
+
 
 end

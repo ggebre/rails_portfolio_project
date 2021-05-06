@@ -40,6 +40,8 @@ class PrescriptionsController < ApplicationController
     @prescription = Prescription.find(params[:id])
   end
 
+  
+
   def update
     @prescription = Prescription.find(params[:id])
     @prescription.update(prescription_params)

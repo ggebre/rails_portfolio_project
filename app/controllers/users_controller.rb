@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  def index
-  end
+  
 
   def create
     
@@ -11,11 +10,10 @@ class UsersController < ApplicationController
       if @user.save 
           session[:user_id] = @user.id
           redirect_to nurses_path  
-      else 
-        # Error Message that account already exits You need to sign in 
-          redirect_to new_user_path
+      else  
+          redirect_to sessions_login_path
       end
-    else
+    else 
         redirect_to new_user_path
     end
   end

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/nurse_admins/nurse_assignment', to: 'nurse_admins#nurse_assignments', :as => "nurse_assignment"
   post '/nurse_admins/nurse_assignment', to: 'nurse_admins#assignments'
   
+  get '/latest_prescription', to: 'nurses#latest'
   resources :sessions, only: :create 
   resources :nurse_admins, only: [:show, :index, :create, :new]
   resources :users, only: [:index, :new, :create]
